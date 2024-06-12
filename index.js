@@ -19,7 +19,7 @@ async function refshreshme() {
   try {
     const response = await axios({
       method: 'GET',
-      url: '/',
+      url: 'https://carfurehelper.onrender.com',
     });
     console.log("web site = ", response.data, " ", Date());
   }
@@ -122,7 +122,7 @@ const fetchDataAndProcess = async () => {
     console.log('Connected to MongoDB');
     const db = client.db(dbName);
 
-    for (let productId = 500000; true; productId++) {
+    for (let productId = 500168; true; productId++) {
       try {
         const response = await axios(generateRequestOptions(productId));
         const productData = extractProductData(response.data);

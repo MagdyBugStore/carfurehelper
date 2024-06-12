@@ -1,7 +1,6 @@
 const express = require('express');
 const axios = require('axios');
 const { MongoClient } = require('mongodb');
-const axios = require('axios');
 
 async function refshreshWebsite() {
   try {

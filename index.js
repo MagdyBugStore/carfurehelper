@@ -122,7 +122,7 @@ const fetchDataAndProcess = async () => {
     console.log('Connected to MongoDB');
     const db = client.db(dbName);
 
-    for (let productId = 500168; true; productId++) {
+    for (let productId = 475000; true; productId++) {
       try {
         const response = await axios(generateRequestOptions(productId));
         const productData = extractProductData(response.data);

@@ -14,6 +14,18 @@ async function refshreshWebsite() {
 
   }
 }
+async function refshresh0() {
+  try {
+    const response = await axios({
+      method: 'GET',
+      url: 'https://carfurehelper0-10.onrender.com',
+    });
+    console.log("web site = ", response.data, " ", Date());
+  }
+  catch (err) {
+
+  }
+}
 
 async function refshreshme() {
   try {
@@ -27,9 +39,9 @@ async function refshreshme() {
 
   }
 }
-
 setInterval(refshreshWebsite, 600000);
 setInterval(refshreshme, 600000);
+setInterval(refshresh0, 600000);
 
 const app = express();
 const port = 3010;
@@ -122,7 +134,7 @@ const fetchDataAndProcess = async () => {
     console.log('Connected to MongoDB');
     const db = client.db(dbName);
 
-    for (let productId = 475000; true; productId++) {
+    for (let productId = 483857; true; productId++) {
       try {
         const response = await axios(generateRequestOptions(productId));
         const productData = extractProductData(response.data);

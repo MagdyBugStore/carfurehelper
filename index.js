@@ -2,18 +2,6 @@ const express = require('express');
 const axios = require('axios');
 const { MongoClient } = require('mongodb');
 
-async function refshreshWebsite() {
-  try {
-    const response = await axios({
-      method: 'GET',
-      url: 'https://carfure.onrender.com',
-    });
-    console.log("web site = ", response.data, " ", Date());
-  }
-  catch (err) {
-
-  }
-}
 
 async function refshreshme() {
   try {
@@ -28,7 +16,6 @@ async function refshreshme() {
   }
 }
 
-setInterval(refshreshWebsite, 600000);
 setInterval(refshreshme, 600000);
 
 const app = express();

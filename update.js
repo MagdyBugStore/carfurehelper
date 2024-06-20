@@ -13,7 +13,7 @@ const axiosInstance = axios.create({
 });
 
 const selfPing = () => {
-  axiosInstance.get('http://localhost:3000/update-products')
+  axiosInstance.get('https://carfurehelper.onrender.com/update-products')
     .then(response => {
       console.log(`Self-ping successful at ${new Date().toISOString()}`);
     })

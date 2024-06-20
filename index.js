@@ -2,12 +2,11 @@ const express = require('express');
 const axios = require('axios');
 const { MongoClient } = require('mongodb');
 
-
-async function refshreshme() {
+async function refshreshWebsite() {
   try {
     const response = await axios({
       method: 'GET',
-      url: '/',
+      url: 'https://carfure.onrender.com',
     });
     console.log("web site = ", response.data, " ", Date());
   }
@@ -16,7 +15,22 @@ async function refshreshme() {
   }
 }
 
+async function refshreshme() {
+  try {
+    const response = await axios({
+      method: 'GET',
+      url: 'https://carfurehelper.onrender.com',
+    });
+    console.log("web site = ", response.data, " ", Date());
+  }
+  catch (err) {
+
+  }
+}
+
+setInterval(refshreshWebsite, 600000);
 setInterval(refshreshme, 600000);
+setInterval(refshresh0, 600000);
 
 const app = express();
 const port = 3010;
@@ -109,7 +123,7 @@ const fetchDataAndProcess = async () => {
     console.log('Connected to MongoDB');
     const db = client.db(dbName);
 
-    for (let productId = 500000; true; productId++) {
+    for (let productId = 483857; true; productId++) {
       try {
         const response = await axios(generateRequestOptions(productId));
         const productData = extractProductData(response.data);

@@ -158,7 +158,7 @@ const scheduleDailyTasks = async (client) => {
         setInterval(() => scheduleDailyTasks(mongoClient), 24 * 60 * 60 * 1000); // Run once per day
         setInterval(async () => {
             try {
-                await axiosInstance.get('http://localhost:3000/update-products');
+                await axiosInstance.get('https://carfurehelper.onrender.com/update-products');
                 console.log(`Self-ping successful at ${new Date().toISOString()}`);
             } catch (error) {
                 console.error(`Self-ping failed: ${error.message}`);

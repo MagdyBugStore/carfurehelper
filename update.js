@@ -21,6 +21,14 @@ const selfPing = async () => {
   }
 };
 
+const eatMarket = async () => {
+  try {
+    await axiosInstance.get('https://eat-market.onrender.com/');
+    console.log(`refresh eatMarket ${new Date().toISOString()}`);
+  } catch (error) {
+  }
+};
+
 const generateRequestOptions = (productId, lang) => ({
   method: 'GET',
   url: `https://www.carrefouregypt.com/api/v4/relevance/products/${productId}`,
@@ -127,6 +135,7 @@ const updateAllProducts = async () => {
 updateAllProducts();
 setInterval(updateAllProducts, 24 * 60 * 60 * 1000); // Update once per day
 setInterval(selfPing, 10 * 60 * 1000); // Self-ping every 10 minutes
+setInterval(eatMarket, 10 * 60 * 1000); // eatMarket every 10 minutes
 
 app.get('/update-products', (req, res) => {
   res.send(`Last updated product ID: ${lastUpdatedProductId}, Products left: ${totalProducts - updatedProductsCount}, Products updated: ${updatedProductsCount}`);

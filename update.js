@@ -14,7 +14,7 @@ const axiosInstance = axios.create({
 
 const selfPing = async () => {
   try {
-    await axiosInstance.get('https://eat-market.onrender.com/update-products');
+    await axiosInstance.get('https://eat-market.onrender.com');
     console.log(`Self-ping successful at ${new Date().toISOString()}`);
   } catch (error) {
     console.error(`Self-ping failed: ${error.message}`);
@@ -45,15 +45,13 @@ const extractProductData = ({ data }, lang) => {
   const images = productInfo.links.images.map(image => image.href);
   const thumbnail = images.find(image => image.includes('_200Wx200H'));
   const { defaultImages } = productInfo.links;
-  // const categories = productInfo.category.map(cat => ({
-  //   name: cat.name,
-  //   level: cat.level,
-  // }));
+  const categories = productInfo.category.map(cat => cat.id);
+
 
   return {
     id: productInfo.id,
     ean: productInfo.ean,
-    categoryId: productInfo.category.id,
+    category: categories,
     [`name_${lang}`]: productInfo.name,
     brand: productInfo.brand?.name || null,
     supplier: productInfo.supplier || null,

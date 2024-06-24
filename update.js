@@ -14,7 +14,7 @@ const axiosInstance = axios.create({
 
 const selfPing = async () => {
   try {
-    await axiosInstance.get('https://eat-market.onrender.com');
+    await axiosInstance.get('https://carfurehelper.onrender.com/update-products');
     console.log(`Self-ping successful at ${new Date().toISOString()}`);
   } catch (error) {
     console.error(`Self-ping failed: ${error.message}`);
